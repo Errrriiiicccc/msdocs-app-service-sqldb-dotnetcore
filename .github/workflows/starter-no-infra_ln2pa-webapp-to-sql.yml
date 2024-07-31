@@ -30,6 +30,9 @@ jobs:
       - name: Install dotnet ef
         run: dotnet tool install --global dotnet-ef --version 8.*
 
+      - name: Add package
+        run: dotnet add package System.Data.SqlClient
+
       - name: Create migrations bundle
         run: dotnet ef migrations bundle --runtime linux-x64 -o ${{env.DOTNET_ROOT}}/myapp/migrationsbundle
       
