@@ -10,9 +10,11 @@ namespace DotNetCoreSqlDb.Data
 {
     public class MyDatabaseContext : DbContext
     {
+        private readonly IHttpContextAccessor _contextAccessor;
         public MyDatabaseContext(DbContextOptions<MyDatabaseContext> options, IHttpContextAccessor accessor)
     : base(options)
         {
+            _contextAccessor = accessor;
             var conn = Database.GetDbConnection() as SqlConnection;
             conn.AccessToken = accessor.HttpContext.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
         }
