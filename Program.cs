@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb.Data;
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddHttpContextAccessor();
 // Add database context and cache
 if(builder.Environment.IsDevelopment())
 {
