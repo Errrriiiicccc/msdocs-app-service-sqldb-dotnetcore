@@ -14,7 +14,7 @@ namespace DotNetCoreSqlDb.Data
         public MyDatabaseContext(DbContextOptions<MyDatabaseContext> options, IHttpContextAccessor accessor)
     : base(options)
         {
-            _contextAccessor = accessor; 
+            _contextAccessor = accessor; // Comment to trick the repo to republish & redeploy
             var conn = Database.GetDbConnection() as SqlConnection; 
             if (conn != null && accessor.HttpContext != null)
             {
